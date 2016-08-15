@@ -1,0 +1,15 @@
+---
+
+- hosts: linux-workstation
+  sudo: no
+
+  vars:
+    atom_packages:
+      - linter
+      - linter-clojure
+      - proto-repl
+      - proto-repl-charts
+      - parinfer
+
+  roles:
+    - jgkim.atom
