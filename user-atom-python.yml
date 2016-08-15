@@ -1,0 +1,18 @@
+---
+
+- hosts: linux-workstation
+  sudo: no
+
+  vars:
+    atom_packages:
+      - linter
+      - linter-pep8
+      - python-tools
+      - python-indent
+      - autocomplete-python
+
+  roles:
+    - jgkim.atom
+
+  tasks:
+    - pip: name=pep8 state=present extra_args='--user'

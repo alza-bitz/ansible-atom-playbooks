@@ -1,0 +1,29 @@
+---
+
+- hosts: linux-workstation
+  sudo: no
+
+  vars:
+    atom_packages:
+      - linter
+      - linter-jsonlint
+      - pretty-json
+      - script
+      - expand-region
+      - project-view
+      - tree-view-git-status
+      - git-plus
+      - git-diff-details
+      - git-blame
+
+  roles:
+    - jgkim.atom
+
+  tasks:
+    - blockinfile:
+        dest: ~/.atom/keymap.cson
+        create: true
+        block: |
+          'atom-text-editor':
+            'alt-up': 'expand-region:expand'
+            'alt-down': 'expand-region:shrink'

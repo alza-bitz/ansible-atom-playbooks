@@ -1,0 +1,16 @@
+---
+
+- hosts: linux-workstation
+  sudo: no
+
+  vars:
+    atom_packages:
+      - language-ansible
+#      - linter-ansible-linting
+      - autocomplete-ansible
+
+  roles:
+    - jgkim.atom
+
+  tasks:
+    - pip: name=ansible-lint state=present extra_args='--user'
