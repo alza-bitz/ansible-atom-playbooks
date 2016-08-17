@@ -1,0 +1,21 @@
+---
+
+- hosts: linux-workstation
+  sudo: no
+
+  vars:
+    atom_packages:
+      - adwaita-pro-ui
+
+  roles:
+    - jgkim.atom
+
+  tasks:
+    - blockinfile:
+        dest: ~/.atom/styles.less
+        marker: '// {mark} ANSIBLE MANAGED BLOCK for user-atom-theme-adwaita-pro-ui playbook'
+        create: true
+        block: |
+          .theme-adwaita-pro-ui atom-text-editor {
+            background-color: #292929;
+          }
