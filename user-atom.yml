@@ -15,6 +15,8 @@
       - git-plus
       - git-diff-details
       - git-blame
+      - hyperclick
+      - hyperlink-hyperclick
 
   roles:
     - jgkim.atom
@@ -22,6 +24,7 @@
   tasks:
     - blockinfile:
         dest: ~/.atom/keymap.cson
+        marker: '# {mark} ANSIBLE MANAGED BLOCK for user-atom playbook'
         create: true
         block: |
           'atom-text-editor':
