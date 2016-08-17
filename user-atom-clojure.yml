@@ -7,9 +7,82 @@
     atom_packages:
       - linter
       - linter-clojure
+      - ink
       - proto-repl
       - proto-repl-charts
-      - parinfer
+      - lisp-paredit
+#      - parinfer
 
   roles:
     - jgkim.atom
+
+  tasks:
+    - blockinfile:
+        dest: ~/.atom/keymap.cson
+        marker: '# {mark} ANSIBLE MANAGED BLOCK for user-atom-clojure playbook'
+        create: true
+        block: |
+          # Workaround for https://github.com/jonspalding/lisp-paredit/issues/11
+          '.platform-linux atom-text-editor[data-grammar~="clojure"],
+           atom-text-editor[data-grammar~="lisp"],
+           atom-text-editor[data-grammar~="newlisp"],
+           atom-text-editor[data-grammar~="racket"],
+           atom-text-editor[data-grammar~="scheme"]':
+            'ctrl-alt-.': 'lisp-paredit:slurp-forwards'
+          # Workaround for https://github.com/jasongilman/proto-repl/issues/147
+          'atom-workspace atom-text-editor:not([mini])':
+            'ctrl-alt-, l': 'unset!'
+            'ctrl-alt-, shift-l': 'unset!'
+            'ctrl-alt-, j': 'unset!'
+            'ctrl-alt-, y': 'unset!'
+            'ctrl-alt-, e': 'unset!'
+            'ctrl-alt-, k': 'unset!'
+            'ctrl-alt-< s': 'unset!'
+            'ctrl-alt-, b': 'unset!'
+            'ctrl-alt-, B': 'unset!'
+            'ctrl-alt-, s': 'unset!'
+            'ctrl-alt-, f': 'unset!'
+            'ctrl-alt-, r': 'unset!'
+            'ctrl-alt-< r': 'unset!'
+            'ctrl-alt-, p': 'unset!'
+            'ctrl-alt-, x': 'unset!'
+            'ctrl-alt-, t': 'unset!'
+            'ctrl-alt-, a': 'unset!'
+            'ctrl-alt-, d': 'unset!'
+            'ctrl-alt-, c': 'unset!'
+            'ctrl-alt-, n': 'unset!'
+            'ctrl-alt-< n': 'unset!'
+            'ctrl-alt-, o': 'unset!'
+            'ctrl-shift-c': 'unset!'
+            'shift-enter': 'unset!'
+            'ctrl-alt-< i': 'unset!'
+            'ctrl-alt-< d': 'unset!'
+            'ctrl-alt-< c': 'unset!'
+
+            'ctrl-alt-; l': 'proto-repl:toggle'
+            'ctrl-alt-; shift-l': 'proto-repl:toggle-current-project-clj'
+            'ctrl-alt-; j': 'proto-repl:start-self-hosted-repl'
+            'ctrl-alt-; y': 'proto-repl:remote-nrepl-connection'
+            'ctrl-alt-; e': 'proto-repl:exit-repl'
+            'ctrl-alt-; k': 'proto-repl:clear-repl'
+            'ctrl-alt-: s': 'proto-repl:toggle-auto-scroll'
+            'ctrl-alt-; b': 'proto-repl:execute-block'
+            'ctrl-alt-; B': 'proto-repl:execute-top-block'
+            'ctrl-alt-; s': 'proto-repl:execute-selected-text'
+            'ctrl-alt-; f': 'proto-repl:load-current-file'
+            'ctrl-alt-; r': 'proto-repl:refresh-namespaces'
+            'ctrl-alt-: r': 'proto-repl:super-refresh-namespaces'
+            'ctrl-alt-; p': 'proto-repl:pretty-print'
+            'ctrl-alt-; x': 'proto-repl:run-tests-in-namespace'
+            'ctrl-alt-; t': 'proto-repl:run-test-under-cursor'
+            'ctrl-alt-; a': 'proto-repl:run-all-tests'
+            'ctrl-alt-; d': 'proto-repl:print-var-documentation'
+            'ctrl-alt-; c': 'proto-repl:print-var-code'
+            'ctrl-alt-; n': 'proto-repl:list-ns-vars'
+            'ctrl-alt-: n': 'proto-repl:list-ns-vars-with-docs'
+            'ctrl-alt-; o': 'proto-repl:open-file-containing-var'
+            'ctrl-shift-c': 'proto-repl:interrupt'
+            'shift-enter': 'proto-repl:execute-text-entered-in-repl'
+            'ctrl-alt-: i': 'proto-repl:insert-save-value-call'
+            'ctrl-alt-: d': 'proto-repl:display-saved-values'
+            'ctrl-alt-: c': 'proto-repl:clear-saved-values'
