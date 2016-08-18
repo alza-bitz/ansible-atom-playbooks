@@ -1,0 +1,12 @@
+---
+
+- hosts: linux-workstation
+  sudo: no
+
+  vars:
+    atom_packages:
+      - linter
+      - linter-eslint
+
+  roles:
+    - jgkim.atom
