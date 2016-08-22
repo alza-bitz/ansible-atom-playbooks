@@ -1,0 +1,11 @@
+---
+
+- hosts: linux-workstation
+  sudo: no
+
+  vars:
+    atom_packages:
+      - hidpi
+
+  roles:
+    - jgkim.atom
