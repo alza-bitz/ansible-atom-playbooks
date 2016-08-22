@@ -17,6 +17,7 @@
       - git-blame
       - hyperclick
       - hyperlink-hyperclick
+      - symbols-tree-view
 
   roles:
     - jgkim.atom
