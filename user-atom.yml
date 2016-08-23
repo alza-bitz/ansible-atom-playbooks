@@ -20,7 +20,7 @@
       - symbols-tree-view
 
   roles:
-    - jgkim.atom
+    - { role: jgkim.atom, atom_upgrade_all: true }
 
   tasks:
     - blockinfile:

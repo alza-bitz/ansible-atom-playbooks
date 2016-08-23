@@ -10,7 +10,7 @@
       - autocomplete-ansible
 
   roles:
-    - jgkim.atom
+    - { role: jgkim.atom, atom_upgrade_all: true }
 
   tasks:
     - pip: name=ansible-lint state=present extra_args='--user'
