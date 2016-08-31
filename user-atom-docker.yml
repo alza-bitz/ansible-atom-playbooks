@@ -1,0 +1,13 @@
+---
+
+- hosts: linux-workstation
+  sudo: no
+
+  vars:
+    atom_packages:
+      - language-docker
+      - linter-docker
+      - dockerletion
+
+  roles:
+    - { role: jgkim.atom, atom_upgrade_all: true }
