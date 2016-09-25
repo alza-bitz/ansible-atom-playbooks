@@ -1,7 +1,7 @@
 ---
 
 - hosts: linux-workstation
-  sudo: no
+  become: false
 
   vars:
     atom_packages:
@@ -21,7 +21,7 @@
       package:
         name: environment-modules
         state: absent
-      sudo: true
+      become: true
       when: ansible_distribution == 'Fedora'
     - blockinfile:
         dest: ~/.atom/keymap.cson
