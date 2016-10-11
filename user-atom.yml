@@ -6,6 +6,7 @@
   vars:
     atom_packages:
       - linter
+      - linter-js-yaml
       - linter-jsonlint
       - pretty-json
       - script
