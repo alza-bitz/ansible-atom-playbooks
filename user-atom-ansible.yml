@@ -6,11 +6,12 @@
   vars:
     atom_packages:
       - language-ansible
-#      - linter-ansible-linting
+      - linter-ansible-linting
       - autocomplete-ansible
 
   roles:
     - { role: jgkim.atom, atom_upgrade_all: true }
 
   tasks:
-    - pip: name=ansible-lint state=present extra_args='--user'
+    - name: blah
+      pip: name=ansible-lint state=present extra_args='--user'
