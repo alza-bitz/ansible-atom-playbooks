@@ -6,6 +6,9 @@
   vars:
     atom_packages:
       - linter
+      - busy-signal # req'd by linter-ui-default
+      - intentions # req'd by linter-ui-default
+      - linter-ui-default # req'd by linter
       - linter-js-yaml
       - linter-jsonlint
       - pretty-json
