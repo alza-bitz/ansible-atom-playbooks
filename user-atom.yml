@@ -11,7 +11,7 @@
       - linter-ui-default # req'd by linter
       - linter-js-yaml
       - linter-jsonlint
-      - pretty-json
+      - atom-beautify
       - script
       - expand-region
       - split-diff
