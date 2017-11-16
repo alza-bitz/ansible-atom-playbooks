@@ -1,0 +1,12 @@
+---
+
+- hosts: linux-workstation
+  become: false
+
+  vars:
+    atom_packages:
+      - language-nginx
+
+  roles:
+    - { role: jgkim.atom, atom_upgrade_all: true }
+
