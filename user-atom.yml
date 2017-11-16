@@ -23,7 +23,8 @@
       - git-blame
       - hyperclick
       - hyperlink-hyperclick
-      - symbols-tree-view
+      - symbol-gen
+      - symbols-tree-nav
 
   roles:
     - { role: jgkim.atom, atom_upgrade_all: true }

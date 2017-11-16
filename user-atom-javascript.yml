@@ -7,6 +7,7 @@
     atom_packages:
       - linter
       - linter-eslint
+      - atom-ternjs
 
   roles:
     - { role: jgkim.atom, atom_upgrade_all: true }
