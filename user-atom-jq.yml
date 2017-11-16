@@ -1,0 +1,11 @@
+---
+
+- hosts: linux-workstation
+  become: false
+
+  vars:
+    atom_packages:
+      - language-jq
+
+  roles:
+    - { role: jgkim.atom, atom_upgrade_all: true }
