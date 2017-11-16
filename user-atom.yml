@@ -15,6 +15,7 @@
       - script
       - expand-region
       - split-diff
+      - change-case
       
       - project-view
       - tree-view-git-status
